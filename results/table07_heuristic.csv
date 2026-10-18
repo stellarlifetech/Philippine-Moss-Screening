@@ -1,0 +1,7 @@
+species,structural_score,hydric_M,H_raw,CPI,rank,H_equal_weight,rank_equal_weight,rank_structural_only,rank_hydric_only
+Sphagnum junghuhnianum,0.7159,1.0,0.7784,100.0,1,0.7626,1,1,1
+Fissidens nobilis,0.4991,0.3333,0.4626,33.5512,2,0.4559,2,2,3
+Pyrrhobryum spiniforme,0.4509,0.3333,0.4251,25.656,3,0.437,4,3,3
+Dendrocyathophorum decolyi,0.3761,0.5,0.4034,21.088,4,0.4394,3,6,2
+Entodon plicatus,0.4301,0.1667,0.3722,14.5274,5,0.3696,5,4,5
+Hyophila involuta,0.3886,0.0,0.3031,0.0,6,0.2937,6,5,6

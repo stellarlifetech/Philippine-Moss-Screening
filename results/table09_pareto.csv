@@ -1,0 +1,7 @@
+species,areal_density_g_cm2,theta_WH,status,dominated_by
+Sphagnum junghuhnianum,0.0903,1.0,Pareto-optimal,-
+Fissidens nobilis,0.1029,0.3333,Pareto-optimal,-
+Pyrrhobryum spiniforme,0.0886,0.3333,Dominated,Fissidens nobilis; Sphagnum junghuhnianum
+Entodon plicatus,0.1127,0.1667,Pareto-optimal,-
+Dendrocyathophorum decolyi,0.0774,0.5,Dominated,Sphagnum junghuhnianum
+Hyophila involuta,0.1019,0.0,Dominated,Entodon plicatus; Fissidens nobilis

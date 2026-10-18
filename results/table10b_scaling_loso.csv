@@ -1,0 +1,7 @@
+species,baseline,robust_scaling,without Sphagnum junghuhnianum,without Fissidens nobilis,without Pyrrhobryum spiniforme,without Entodon plicatus,without Dendrocyathophorum decolyi,without Hyophila involuta
+Sphagnum junghuhnianum,1,1,,1.0,1.0,1.0,1.0,1.0
+Fissidens nobilis,2,3,1.0,,2.0,2.0,2.0,2.0
+Pyrrhobryum spiniforme,3,4,3.0,2.0,,3.0,3.0,3.0
+Entodon plicatus,5,5,4.0,4.0,4.0,,4.0,5.0
+Dendrocyathophorum decolyi,4,2,2.0,3.0,3.0,4.0,,4.0
+Hyophila involuta,6,6,5.0,5.0,5.0,5.0,5.0,

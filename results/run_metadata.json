@@ -1,0 +1,17 @@
+{
+  "convergence_P_rank1_Sphagnum": {
+    "1000": 99.6,
+    "2500": 99.52,
+    "5000": 99.44,
+    "10000": 99.42
+  },
+  "seed": 20261018,
+  "iterations": 10000,
+  "replicates_per_scenario": 2000,
+  "mu_rho": {
+    "0.662 MeV (137Cs)": 0.08567026413987323,
+    "1.25 MeV (60Co)": 0.06323
+  },
+  "spearman_heuristic_vs_areal": -0.2,
+  "spearman_structural_vs_hydric": 0.40583972495671394
+}
