@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article and this repository."
+title: "Philippine moss computational screening: analysis code"
+type: software
+license: MIT
+authors:
+  - family-names: Hernandez
+    given-names: Joannes Paulus T.
+  - family-names: Lubos
+    given-names: Lesley C.
+  - family-names: Buot
+    given-names: Inocencio E.
+    name-suffix: Jr.
+version: 1.0.0
+date-released: 2026-10-18
+keywords: [bryophytes, image analysis, multi-criteria prioritization, biomimetics, Sphagnum]
