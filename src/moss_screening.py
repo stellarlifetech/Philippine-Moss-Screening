@@ -231,6 +231,54 @@ def replication_simulation(rng, reps=None, k_fields=4) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def extra_sensitivity(out: Path) -> dict:
+    """Additional baselines requested in review (Table 10c-e, Table 11b).
+
+    * leave-one-descriptor-out: each fused descriptor removed in turn, the
+      remaining weights rescaled to sum to one;
+    * unweighted rank-sum (Borda) baseline: species ranked on each fused
+      descriptor and the ranks summed, with no weights and no scaling;
+    * single-source baselines: image-only (alpha = 1, P/G/U/S only, equal
+      weights) and literature-only (alpha = 0, all five, equal weights);
+    * wider ordinal uncertainty: every literature score shifted by an integer
+      in [-2, 2] (10,000 iterations, separate seed so earlier outputs are unchanged).
+    """
+    F = fuse(IMAGE, LIT)
+    lodo = {"baseline": ranks(heuristic(F))}
+    for k in WEIGHTS:
+        w = {j: v for j, v in WEIGHTS.items() if j != k}
+        tot = sum(w.values())
+        lodo[f"without {k}"] = ranks(heuristic(F, {j: v / tot for j, v in w.items()}))
+    t_lodo = pd.DataFrame(lodo).loc[SPECIES]
+    t_lodo.to_csv(out / "table10c_leave_one_descriptor_out.csv")
+
+    desc_ranks = F[list(WEIGHTS)].rank(ascending=False, method="average")
+    borda = desc_ranks.sum(axis=1)
+    eq = {k: 0.2 for k in WEIGHTS}
+    t_base = pd.DataFrame({
+        "weighted_baseline": ranks(heuristic(F)),
+        "equal_weights": ranks(heuristic(F, eq)),
+        "rank_sum_score": borda,
+        "rank_sum_unweighted": borda.rank(method="min").astype(int),
+        # image-only: alpha = 1 and the literature-only descriptor M excluded
+        "image_only_equal_weights": ranks(heuristic(fuse(IMAGE, LIT, 1.0),
+                                                    {"P": .25, "G": .25, "U": .25, "S": .25, "M": 0.0})),
+        "literature_only_equal_weights": ranks(heuristic(fuse(IMAGE, LIT, 0.0), eq)),
+    }).loc[SPECIES]
+    t_base.to_csv(out / "table10d_unweighted_baselines.csv")
+
+    rng2 = np.random.default_rng(SEED + 1)
+    R = np.zeros((N_ITER, len(SPECIES)), int)
+    for it in range(N_ITER):
+        lit = LIT.copy()
+        for c in ["SC", "TO", "TR", "MC", "WH"]:
+            lit[c] = np.clip(lit[c] + rng2.integers(-2, 3, len(lit)), 0, 10)
+        R[it] = ranks(heuristic(fuse(IMAGE, lit))).loc[SPECIES].values
+    t_o2 = summarize_ranks(R, SPECIES).round(2)
+    t_o2.to_csv(out / "table11b_mc_ordinal_pm2.csv")
+    return {"ordinal_pm2_seed": SEED + 1}
+
+
 # ---------------------------------------------------------------------------
 def main(out: Path) -> dict:
     out.mkdir(parents=True, exist_ok=True)
@@ -321,6 +369,7 @@ def main(out: Path) -> dict:
     t12.round({"P_same_top_%": 1, "P_same_top3_set_%": 1, "P_exact_order_%": 1,
                "median_spearman": 3}).to_csv(out / "table12_synthetic_replication_SIMULATED.csv", index=False)
 
+    res.update(extra_sensitivity(out))
     res.update({
         "seed": SEED, "iterations": N_ITER, "replicates_per_scenario": N_REPS, "mu_rho": MU_RHO,
         "spearman_heuristic_vs_areal": float(spearmanr(H.loc[SPECIES], A.loc[SPECIES])[0]),

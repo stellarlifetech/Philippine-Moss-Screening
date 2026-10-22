@@ -1,0 +1,7 @@
+species,weighted_baseline,equal_weights,rank_sum_score,rank_sum_unweighted,image_only_equal_weights,literature_only_equal_weights
+Sphagnum junghuhnianum,1,1,10.0,1,2,1
+Fissidens nobilis,2,2,14.5,2,6,2
+Pyrrhobryum spiniforme,3,4,17.5,3,4,3
+Entodon plicatus,5,5,23.0,6,1,5
+Dendrocyathophorum decolyi,4,3,18.0,4,5,4
+Hyophila involuta,6,6,22.0,5,3,6

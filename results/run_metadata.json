@@ -5,6 +5,7 @@
     "5000": 99.44,
     "10000": 99.42
   },
+  "ordinal_pm2_seed": 20261019,
   "seed": 20261018,
   "iterations": 10000,
   "replicates_per_scenario": 2000,

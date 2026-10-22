@@ -1,0 +1,7 @@
+,mean_rank,rank_2.5,rank_97.5,P_rank1_%,P_top3_%
+Sphagnum junghuhnianum,1.0,1.0,1.0,99.99,100.0
+Fissidens nobilis,3.0,2.0,6.0,0.01,70.78
+Pyrrhobryum spiniforme,3.49,2.0,6.0,0.0,54.53
+Entodon plicatus,4.32,2.0,6.0,0.0,27.27
+Dendrocyathophorum decolyi,3.82,2.0,6.0,0.0,41.77
+Hyophila involuta,5.37,3.0,6.0,0.0,5.65

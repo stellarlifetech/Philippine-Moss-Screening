@@ -1,0 +1,10 @@
+# Exact environment used to generate results/ and figures/ (Tables 6-12, S2; Figures 4-6)
+python==3.13.16
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+matplotlib==3.11.2
+# Reference image code only (reference/image_pipeline.py; not used for any published output)
+opencv-python==4.10.0.84
+scikit-image==0.26.0
+# The original image analysis that produced Table 3 used Python 3.11.3 and OpenCV 4.10.0.

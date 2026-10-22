@@ -11,6 +11,8 @@ authors:
   - family-names: Buot
     given-names: Inocencio E.
     name-suffix: Jr.
-version: 1.0.0
-date-released: 2026-10-18
+version: 1.1.0
+doi: 10.5281/zenodo.23445619
+repository-code: "https://github.com/stellarlifetech/Philippine-Moss-Screening"
+date-released: 2026-10-21
 keywords: [bryophytes, image analysis, multi-criteria prioritization, biomimetics, Sphagnum]
